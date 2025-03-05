@@ -84,6 +84,34 @@
         .toc a:hover {
             text-decoration: underline;
 }
+        .utterances-frame {
+    opacity: 0; /* Скрываем, пока не загрузится */
+    transition: opacity 0.3s;
+}
+
+.utterances-frame.loaded {
+    opacity: 1;
+}
+
+.utterances {
+    font-family: Arial, sans-serif;
+}
+
+/* Переводим основные фразы */
+.utterances-frame:after {
+    content: "Загрузка комментариев...";
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: gray;
+}
+
+/* CSS для кастомизации кнопки входа */
+.utterances .utterances-signin-button {
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
     </style>
     <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter98691088 = new Ya.Metrika({ id:98691088, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], x = "https://mc.webvisor.org/metrika/watch_ww.js", s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; for (var i = 0; i < document.scripts.length; i++) { if (document.scripts[i].src === x) { return; } } s.type = "text/javascript"; s.async = true; s.src = x; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/98691088" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
@@ -489,7 +517,18 @@
 
 <p>Выбор за вами.</p> 
     
-<p>Надеюсь, мне удалось рассказать как сделать vpn сервер самому.</p>    
+<p>Надеюсь, мне удалось рассказать как сделать vpn сервер самому.</p>  
+
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let iframe = document.querySelector('.utterances-frame');
+        if (iframe) {
+            iframe.onload = function () {
+                iframe.classList.add('loaded');
+            };
+        }
+    });
+</script>
 
         <script src="https://utteranc.es/client.js"
         repo="5-tstas/5-tstas.github.io"
