@@ -97,6 +97,8 @@
     <h1>Как сделать vpn сервер самому</h1>
     
     <p>Расскажу, как сделать VPN сервер самому и дам 5-ти шаговую инструкцию. Если вам по какой-либо причине необходимо использовать ВПН, то эта простая инструкция поможет вам настроить личный VPN сервер на протоколе Shadowsocks.</p>
+         <p>Статья длинная, может показаться сложным процессом. По этому, в конце статьи есть видео, где я произвожу все настройки при включенном секундамере и все запускаю за 10 минут. Рекомендую начать с просмотра видео и далее перейти к самим настройкам. Ссылка на видео ниже.</p>
+        <p>Видео - <a href="#yakor_01">VPN это просто</a></p>
 
     <p>Протокол Shadowsocks практически невозможно отследить. А значит, вас не заблокируют. Вы сможете подключить любые устройства — Windows, Linux, Android, iOS. Как свои, так и устройства ваших родственников и друзей.</p>
 
@@ -138,6 +140,7 @@
         <li><a href="#step5">Шаг 5. Выход в интернет и проверка работы VPN сервера</a></li>
         <li><a href="#pros-cons">Плюсы и минусы использования своего VPN сервера</a></li>
         <li><a href="#conclusion">Заключение</a></li>
+        <li><a href="#yakor_01">Видео - реалити настройка под секундамер всего процесса за 10 минут!</a></li>
     </ul>
      </div>
     <h2>Арендуем хост у провайдера для создания своего VPN сервера</h2>
@@ -491,7 +494,43 @@
 
 <p>Если вы балуетесь с <strong>ChatGPT</strong> и иногда юзаете зарубежные сервисы, то тут, наверное, можно использовать сторонние сервисы, предлагаемые в <strong>Телеграм</strong> (я не тестил, но оплачивал <strong>ChatGPT</strong>, после шло предложение воспользоваться их <strong>VPN</strong> за 300 — 400 рублей. У меня был свой, сказать ничего не могу). По идее они должны работать. Их работа описана выше.</p>
 
-<p>Выбор за вами.</p> 
+<p>Выбор за вами.</p>
+        <div id="yakor_1" style="text-align: center;">
+            <video id="movie" autoplay loop muted playsinline width="100%" height="auto" controls>
+<source src="https://ruinterbiz.ru/video/vpn/kak-sdelat-vpn.mp4" type="video/mp4" loading="lazy" />
+Ваш браузер не поддерживает встроенные видео. 
+    <a href="https://ruinterbiz.ru/video/vpn/kak-sdelat-vpn.mp4">Скачать MP4</a>.
+
+
+</video></span>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+        var v = document.getElementById("movie");
+
+        // Попытка автозапуска (если браузер блокирует - ошибка просто логируется)
+        v.play().catch(() => console.log("Автозапуск заблокирован браузером"));
+
+        // Остановка/запуск по клику
+        v.addEventListener("click", function () {
+            if (v.paused) {
+                v.play();
+            } else {
+                v.pause();
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Адаптация для мобильных */
+    @media (max-width: 768px) {
+        video {
+            height: auto;
+        }
+    }
+</style><span style="font-size: 18pt; font-family: helvetica, arial, sans-serif;"><strong>Личный или корпоративный VPN сервер!</strong></span></div>
+<h2><span style="font-family: helvetica, arial, sans-serif;">Подробная инструкция</span></h2>
+<span style="font-family: helvetica, arial, sans-serif;">Регистрируемся в <a href="https://aeza.net/?ref=455016" target="_blank" rel="noopener">Aeza.net</a> и переходим к настройкам своего НЕ пробиваемого VPN сервера.</span></p></span>
     
 <p>Надеюсь, мне удалось рассказать как сделать vpn сервер самому.</p>  
 
