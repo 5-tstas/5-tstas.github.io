@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليل مفصل لإنشاء خادم VPN الخاص بك: 5 خطوات من استئجار الخادم إلى توصيل الأجهزة">
+    <title>٥ خطوات لإنشاء خادم VPN الخاص بك</title>
+    <style>
+        
+            body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #222;
+        }
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 22px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .note {
+            background: #fffae6;
+            padding: 10px;
+            border-left: 5px solid #f1c40f;
+            margin: 20px 0;
+        }
+        .toc {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            margin: 5px 0;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+}
+        
+
+
+
+    </style>
+    <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter98691088 = new Ya.Metrika({ id:98691088, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], x = "https://mc.webvisor.org/metrika/watch_ww.js", s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; for (var i = 0; i < document.scripts.length; i++) { if (document.scripts[i].src === x) { return; } } s.type = "text/javascript"; s.async = true; s.src = x; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/98691088" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+
+</head>
+<body>
+    <div class="container">
+    <h1>كيفية إنشاء خادم VPN بنفسك</h1>
+    
+    <p>سأشرح كيفية إنشاء خادم VPN بنفسك وسأقدم تعليمات من خمس خطوات. إذا كنت بحاجة لاستخدام VPN لأي سبب من الأسباب، فإن هذه التعليمات البسيطة ستساعدك في إعداد خادم VPN شخصي باستخدام بروتوكول Shadowsocks.</p>
+         <p>المقال طويل، قد يبدو عملية معقدة. لذلك، في نهاية المقال يوجد فيديو حيث أقوم بإجراء جميع الإعدادات مع تشغيل المؤقت وأقوم بتشغيل كل شيء في 10 دقائق. أوصي بالبدء بمشاهدة الفيديو ثم الانتقال إلى الإعدادات نفسها. الرابط إلى الفيديو أدناه.</p>
+        <p>الفيديو - <a href="#yakor_01">VPN سهل</a></p>
+
+    <p>من المستحيل تقريبًا تتبع بروتوكول Shadowsocks. وهذا يعني أنه لن يتم حظركم. ستتمكنون من توصيل أي أجهزة - Windows، Linux، Android، iOS. سواء كانت أجهزتكم أو أجهزة أقاربكم وأصدقائكم.</p>
+
+    <p class="bold-h3">المهمة</p>
+    <ul>
+        <li>المزود:</li>
+        <ul>
+            <li>الموقع الجغرافي أوروبا؛</li>
+            <li>قبول المدفوعات بالبطاقات الروسية، ويفضل من خلال سبيربنك؛</li>
+            <li>التكلفة؛</li>
+            <li>سهولة الإدارة؛</li>
+            <li>توفير خادم نظيف، بدون برامج مثبتة مسبقًا (أنظمة، لوحات التحكم، إلخ.);</li>
+            <li>القوة، إمكانية توصيل خدمتك باستخدام API ChatGPT (طموحي الشخصي);</li>
+            <li>إمكانية عدم ربط بطاقة الدفع (المدفوعات المتكررة اختيارية);</li>
+        </ul>
+        <li>لوحة التحكم:</li>
+        <ul>
+            <li>سهولة التثبيت والاستخدام;</li>
+            <li>إمكانية توصيل عدد غير محدود من المستخدمين؛</li>
+        </ul>
+        <li>استخدام VPN:</li>
+        <ul>
+            <li>الاستخدام على أي جهاز (ويندوز، ماك أو إس، أندرويد وiOS);</li>
+            <li>سهولة في الاتصال والإعداد (بحيث يمكن للجد والطفل الاتصال بسهولة);</li>
+            <li>حماية الجهاز بالكامل، وليس فقط المتصفح.</li>
+        </ul>
+    </ul>
+
+    <p>المسألة هي أنه إذا كنت تتواصل مع ChatGPT من الهاتف عبر المتصفح، فعادةً ما تكون الحماية كافية على مستوى المتصفح. أما إذا كانت برامجك تتصل بالإنترنت، على سبيل المثال، كما يحدث معي عندما يقوم AutoCAD بالتحقق من الترخيص، فهنا من الضروري وجود حماية على مستوى النظام.</p>
+
+<h2>كيفية إنشاء خادم VPN بنفسك</h2>
+<div class="toc">
+    <p><strong>المحتويات:</strong></p>
+    <ul>
+        <li><a href="#step1">الخطوة 1. استئجار خادم خارجي</a></li>
+        <li><a href="#step2">الخطوة 2. إعداد الخادم</a></li>
+        <li><a href="#step3">الخطوة 3. العمل مع اللوحة</a></li>
+        <li><a href="#step4">الخطوة 4. توصيل الأجهزة بخادم VPN الخاص بك</a></li>
+        <li><a href="#step5">الخطوة 5. الاتصال بالإنترنت والتحقق من عمل خادم VPN</a></li>
+        <li><a href="#pros-cons">إيجابيات وسلبيات استخدام خادم VPN الخاص بك</a></li>
+        <li><a href="#conclusion">الخاتمة</a></li>
+        <li><a href="#yakor_01">فيديو - إعداد واقعي تحت مؤقت العملية بالكامل في 10 دقائق!</a></li>
+    </ul>
+     </div>
+    <h2>استئجار استضافة من مزود لإنشاء خادم VPN الخاص بك</h2>
+
+    <p>اختر البلد الأقرب إلى موقعك الفعلي قدر الإمكان - سيساعد ذلك في تقليل وقت الاستجابة (البينج). لكن معظم المستخدمين لن يلاحظوا الفرق، حيث يتم حساب البينج بالمللي ثانية. للحصول على أقل بينج، يجب أن يكون الخادم أقرب ما يمكن إليك. على سبيل المثال، إذا كنت في روسيا، فمن المنطقي أكثر اختيار خادم في أوروبا بدلاً من الولايات المتحدة. على الرغم من أن الخيار مع الولايات المتحدة مقبول تمامًا أيضًا.</p>
+
+    <p><strong>متطلبات VDS/VPS:</strong></p>
+    <ul>
+        <li>افتراضية KVM</li>
+        <li>أقراص SSD أو NVMe</li>
+        <li>من 1 جيجابايت رام</li>
+        <li>نظام التشغيل: Linux Ubuntu 22.04</li>
+    </ul>
+
+    <p>بشكل عام، نحن بحاجة إلى الخادم الأرخص والأبسط، حيث ستكون الأحمال عليه صغيرة. لكن أوصي بأخذ ذاكرة وصول عشوائي لا تقل عن 1 جيجابايت.</p>
+
+    <p>بعد إجراء بحث شامل عن مقدمي الخدمات وفقًا للمعايير اللازمة، مع مراعاة الطموح والمتطلبات التقنية وغيرها من التعقيدات، وجدت واحدًا فقط - وهو أزا. أما الباقون، فعادة ما لم يكن لديهم إمكانية الدفع البسيط أو شيء آخر أساسي.</p>
+    <img loading="lazy" src="https://github.com/user-attachments/assets/773fd69a-2115-498e-b0b4-88c092b93ecc" alt="kak-sdelat-vpn-server-samomu">
+    
+    <h2>الخطوة 1: استئجار خادم خارجي</h2>
+
+<p id="step1">نسجل في <a href="https://aeza.net/?ref=455016">Aeza.net</a> وننتقل إلى القائمة على اليسار — <strong>إنشاء خادم افتراضي</strong>. انظر إلى الصورة (محدد بالأحمر).</p>
+
+<img src="https://github.com/user-attachments/assets/4e78a36c-aa3d-4323-bc15-8089efdf311f" alt="vertualni-server">
+
+<p>نضغط على <strong>الخادم الافتراضي</strong> (محدد باللون الأحمر في اللوحة اليسرى) ونصل إلى نافذة اختيار موقع الخادم. هنا يجب اختيار موقع الخادم المستقبلي الخاص بك. بعض البلدان أغلى، وبعضها أرخص. التكلفة المثلى حوالي 5 يورو، ولكن هناك عروض أحياناً.</p>
+
+<p>قم بالتمرير قليلاً إلى أسفل الشاشة. ستظهر لك مواصفات (قدرة) الخادم الخاص بك. نختار الأرخص، ولكن يجب أن تكون مؤشرات عرض النطاق الترددي من 1 جيجابايت، وRAM من 1 جيجا أيضًا. عادة ما تكلف هذه الخوادم حوالي 5 يورو.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/539e8b5e-ab75-4e3c-89e0-be85c6f1756b" alt="locaciy-servera">
+
+<p>انتبه جيدًا إلى تكوين الخادم. أي أن تكون مؤشرات عرض النطاق الترددي من 1 جيجابايت وRAM من 1 جيجا أيضًا.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/289cbd93-d556-48a8-802f-d37028dc258a" alt="tarif">
+
+<p>لذلك، على سبيل المثال، لا ينبغي أخذ ستوكهولم على الإطلاق. قدرته الاستيعابية صغيرة. كل شيء سيتوقف لديك. انظر الصورة أدناه.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/e02c98bd-9b79-4f2d-acf7-41a4587264e3" alt="server-v-stokgolme">
+
+<p>بعد ذلك، عند التمرير قليلاً إلى الأسفل، يجب اختيار البرنامج، أي النظام نفسه. اختر <strong>Ubuntu 24.04</strong>.</p>
+
+<p>اختر فترة الدفع. يتوفر الدفع بالساعة (حل ممتاز للاختبار). شهر، 3 أشهر، 6 أشهر وسنة. كلما زادت مدة الاشتراك، زادت الخصم. القرار لك.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/715a5449-6a72-48ef-a4ec-86a610020e84" alt="viber-po">
+
+<p><strong>انتباه!</strong> في النافذة الأخيرة، يتم تحديد خيار النسخ الاحتياطي افتراضيًا. النسخ الاحتياطي بالطبع شيء ضروري، ولكن ليس لخادم VPN. على الإطلاق. لذلك نقوم بتعطيل هذه الخدمة فورًا على أي خادم تختاره.</p>
+
+<p>سيظهر لك المبلغ النهائي للطلب وفقًا للتكوين المختار، والفترة الزمنية، والخصم على المدى الطويل، مع خصم تكاليف النسخ الاحتياطي غير الضروري.</p>
+
+<p>هنا أيضًا توجد علامة اختيار <strong>التجديد التلقائي</strong> ,، نشطة بشكل افتراضي. إذا لم تقم بإزالة العلامة، فسيتم الخصم تلقائيًا، وستحتاج إلى ربط البطاقة. بشكل عام، إنها ميزة مريحة.</p>
+
+<p>راجع الإعدادات في الصورة أدناه.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/da7198b8-6412-4550-9b6e-019f0e749221" alt="becap">
+
+<p>وهنا أدناه لقطة شاشة تحتوي على نفس البيانات، ولكن مع إيقاف النسخ الاحتياطي غير الضروري.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/2392d990-7607-4ae4-9c3a-46941c4379d6" alt="nobecap">
+
+<p>بعد ذلك أوصي بمراجعة جميع الإعدادات الصغيرة مرة أخرى والتحقق من المذكورة. بعد ذلك، قم بتأكيد الطلب، وسيتم نقلك إلى الدفع باستخدام البطاقات الروسية وكل شيء آخر، بما في ذلك العملات المشفرة. فقط قم بالدفع.</p>
+
+<p>يتم الفتح بعد الدفع من 2 إلى 15 دقيقة، ويتم الإبلاغ عن ذلك عبر البريد الإلكتروني وإرسال بيانات الوصول إلى هذا الخادم. يجب حفظها!</p>
+
+<p>البيانات ستكون بهذا الشكل:<br>
+- <strong>IP</strong>: 86.163.135.43 (عنوان IP الخاص بخادمك سيكون مختلفًا)<br>
+- <strong>تسجيل الدخول</strong>: الجذر (غالبًا ما يكون هذا هو تسجيل الدخول)<br>
+- <strong>كلمة المرور</strong>: E7D4sF3csSjg (كلمة المرور لخادمك ستكون مختلفة)</p>
+
+<p>نحفظ هذه البيانات وننتقل إلى إعداد خادم VPN الشخصي الخاص بك، الذي لا يمكن حظره بأي شكل من الأشكال!</p>
+<p>بعد أن يتم فتح الرسالة وإرسالها، قم بتسجيل الدخول مرة أخرى باستخدام اسم المستخدم وكلمة المرور الخاصة بك إلى لوحة التحكم. في الجزء الأيسر من اللوحة، انتقل إلى القسم <strong>خدماتي</strong> ,، كما هو موضح في لقطة الشاشة، وسترى الخادم الذي تم إنشاؤه حديثًا.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/282f29f1-6cab-4945-ae34-8bea3416a9a1" alt="moi-server">
+
+<h2>الخطوة 2: إعداد الخادم</h2>
+
+<p id="step2">لإعداد الخادم، ستحتاج إلى الوصول إلى الخادم نفسه باستخدام البيانات المرسلة في رسالة الخدمة (اسم المستخدم، كلمة المرور وعنوان IP)، لذلك من المهم حفظها. يتم ذلك كله من الكمبيوتر (لم أختبره من الهاتف، ربما يمكن، اكتبوا في التعليقات)، على نظام Windows أو MacOS. على نظام Windows ستحتاج إلى برنامج خاص، بينما يمكن لمستخدمي MacOS استخدام الطرفية المدمجة.</p>
+
+<p>إذن، لنبدأ:</p>
+
+<h3>Windows</h3>
+<p>نقوم بتحميل وتثبيت البرنامج للاتصال بخادمنا: ننتقل إلى <a href="https://www.putty.org/">https://www.putty.org/</a> نقوم بتنزيل وتثبيت. بعد التثبيت، سيظهر اختصار على سطح المكتب، قم بتشغيله كما هو موضح في لقطة الشاشة.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/82326f92-7fd3-4994-a57a-271a65b144e8" alt="ustanovka-i-zapusk-putty">
+
+<p>نتصل بخادمنا، ندخل عنوان IP للخادم (من الرسالة المرسلة)، المنفذ 22 ونضغط <strong>Open</strong> ,، كما هو موضح في الصورة أدناه.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/05a39931-91e3-4e95-88c4-fed43f3f0e52" alt="podkluchenie-ip">
+
+<p>بعد ذلك، نذهب إلى علامة التبويب وفي السطر الأول في حقل الإدخال نكتب أي رقم من 20 إلى 50، على سبيل المثال 50، كما هو موضح في الصورة.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/a83a689a-32d9-4e80-a4e1-b10de4db70a2" alt="nastroika-connection">
+
+<p>نضغط <strong>Open</strong>.</p>
+
+<p>عند الدخول إلى الخادم لأول مرة، يجب الضغط <strong>Accept</strong> في النافذة التي ستظهر. بعد ذلك، في النافذة التالية نقوم بإدخال اسم المستخدم وكلمة المرور (من الرسالة المرسلة)، مع الضغط في كل مرة <strong>Enter</strong>.</p>
+
+<p><strong>انتباه!</strong> عند إدخال كلمة المرور على الشاشة، لا تظهر الرموز - هذا طبيعي. لإدخال كلمة المرور المنسوخة، فقط اضغط مرة واحدة على زر الفأرة الأيمن في نافذة تسجيل الدخول على الخلفية السوداء ثم <strong>Enter</strong> ,، انظر الصورة.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/63c83d3e-adf4-4bc3-bf44-bf1465c68b6a" alt="vvod-logo-pass">
+
+<p>في حالة الاتصال الناجح، سيتم تحميل بيانات النظام وسيكون هناك دعوة لإصدار الأوامر إلى الخادم الخاص بك. في المثال أدناه، تكون هذه الدعوة في السطر الأخير وتبدو — <strong>root@TESTVDS:~#</strong> هذه الجملة تعني أن الخادم جاهز لاستقبال ومعالجة وتنفيذ أوامرك.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/b564d3c0-0cad-41c3-848e-af6506c1730f" alt="ustanovka-paneli">
+
+<p>كل شيء ممتاز، تم الاتصال بنجاح! انتقل قليلاً إلى الأسفل — ستجد التعليمات لنظام MacOS. ومع ذلك، أوصي بتقييم التعليمات وفهم روعة استخدام أجهزة ماكنتوش.</p>
+
+<h3>MacOS</h3>
+<p>إذا كان لديك جهاز Mac، فسوف نستخدم الطرفية المدمجة، لأنه لا يوجد معنى لتثبيت برامج خارجية من أجل الدخول إلى الخادم مرة واحدة لبضع دقائق.</p>
+
+<p>إذن، ندخل في لوحة الإطلاق في البحث كلمة <strong>المحطة</strong> أو <strong>Terminal</strong> ,، نرى هذا:</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/e1065b0e-9ad7-47c5-a9d4-d56e4cf80be6" alt="terminal-macos">
+
+<p>نفتح الطرفية، نكتب الأمر ونضغط <strong>Enter</strong>:</p>
+
+<pre>ssh اسم_المستخدم@عنوان_IP_الخادم</pre>
+
+<p>أي إذا كان تسجيل الدخول الخاص بي <strong>root</strong> ,، وعنوان IP الخاص بالخادم <strong>79.137.202.97</strong> ,، فإن الأمر في الطرفية سيكون:</p>
+
+<pre>ssh root@79.137.202.97</pre>
+
+<p>ثم نقوم بإدخال كلمة المرور (جميع البيانات من الرسالة من خدمة AEZA) ونضغط <strong>Enter</strong> — تم.</p>
+
+<h3>إعداد خادم VPN الخاص بك</h3>
+<p>ستحتاج إلى إدخال 3 أوامر فقط، وبعد ذلك لن تحتاج إلى الدخول إلى الخادم مرة أخرى.</p>
+
+<p>إذن، لنبدأ:</p>
+
+<p>جميع الأوامر متشابهة لكلا النظامين، الفرق فقط في التشغيل والاتصال. بعد ذلك، يعمل كل شخص في طرفيته الخاصة.</p>
+
+<p>قم بنسخ هذا الأمر والصقه في سطر إدخال الأوامر (لا <strong>Ctrl + V</strong> ,، بالنقر على زر الفأرة الأيمن (ПКМ) ثم تضغط <strong>Enter</strong>:</p>
+
+<pre>sudo apt-get update &amp;&amp; sudo apt-get upgrade -y</pre>
+
+<p>بهذا تقوم بتحديث الخادم الخاص بك إلى أحدث إصدار. قد يستغرق التحديث من 2 إلى 3 دقائق.</p>
+
+<p>أثناء التحديث، سيظهر شاشة بنفسجية مع خيارات للاختيار. لا تحتاج إلى اختيار أي شيء، فقط اضغط <strong>Enter</strong>.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/4bd61391-90b6-4827-99cb-c3846d000be6" alt="obnovlenie-enter">
+
+<p>المؤشر على أن كل شيء تم بنجاح سيكون شاشة مثل هذه مع سطر نشط لإدخال الأوامر. انظر الصورة أدناه.</p>
+
+<p>نواصل:</p>
+
+<p>قم بنسخ هذا الأمر والصقه في سطر إدخال الأوامر (لا <strong>ctrl + V</strong> ,، بالنقر على زر الفأرة الأيمن (ПКМ) ثم تضغط <strong>Enter</strong>:</p>
+
+<pre>sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/master/marzban.sh)" @ install</pre>
+
+<p>بهذه الأوامر نقوم بتثبيت لوحة تحكم خاصة ومجانية لخادم VPN.</p>
+
+<p>انسخ الأوامر كما هي، بدون مسافات زائدة، وبدون تقسيم إلى أسطر.</p>
+
+<p>بعد إدخال الأمر والضغط <strong>Enter</strong> ,، تبدأ عملية التثبيت:</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/735f8340-be40-4646-8ed5-38f393e58652" alt="proces-ustanovki-paneli">
+
+<p>عندما يظهر مثل هذه الشاشة، فقط اضغط <strong>Enter</strong></p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/68a2f3d1-564c-4440-ba6c-ba65c4fa8629" alt="zapros-na-enter2">
+
+<p>ستستمر التثبيت، وعندما ينتهي التثبيت، سترى النص التالي:</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/b5f9139c-f1fb-4a06-aa87-923cc4828859" alt="zapros-na-contrl-c">
+
+<p>اضغط على كنترول+سي (<strong>CTRL+C</strong>) وسترى هذا:</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/9c0d01a5-e214-40a7-82ba-08cb3940a9bd" alt="uspeshnay-ustanovka-paneli">
+
+<p>ننسخ هذا الأمر ونلصقه في سطر إدخال الأوامر (لا <strong>Ctrl + V</strong> ,، بالضغط على زر الفأرة الأيمن) ونضغط <strong>Enter</strong>:</p>
+
+<pre>marzban cli admin create --sudo</pre>
+
+<p>بهذه الأوامر، يمكنك الوصول إلى لوحة التحكم الخاصة بك عبر المتصفح.</p>
+
+<p>التالي:</p>
+<ul>
+    <li>ندخل أي اسم مستخدم نرغب فيه ونضغط <strong>Enter</strong> (على سبيل المثال، ,<strong>admin</strong> أو <strong>user</strong> ,، أو أي شيء آخر).</li>
+    <li>ندخل أي كلمة مرور نرغب بها ونضغط <strong>Enter</strong> (لن يتم عرض الرموز).</li>
+    <li>نكرر كلمة المرور ونضغط <strong>Enter</strong> (لن يتم عرض الرموز).</li>
+</ul>
+
+<p><strong>انتباه!!!</strong> تذكر اسم المستخدم وكلمة المرور. بدونها لن تتمكن من إنشاء تكوينات VPN.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/628b3437-447d-4375-96c5-1af71a97e2cb" alt="primer-zapuska-comand">
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/fc0b2401-c5dd-4ceb-ace4-1f76f5cb6bf3" alt="vipolnenie-comandi">
+
+<p>هذا كل شيء. اشعر وكأنك مخترق وأغلق وحدة التحكم. تمامًا. إلى الأبد.</p>
+
+<p>بهذا تنتهي العمل مع وحدة التحكم والخادم. لم يعد عليك الدخول هنا، يمكنك نسيان ذلك كأنه كابوس. سيتم الآن إدارة خادم VPN الخاص بك من خلال متصفح عادي.</p>
+
+<p>افتح المتصفح العادي وانتقل إلى العنوان:</p>
+
+<p>http://عنوان_آي_بي_الخادم_الخاصة_بك:8000/dashboard/</p>
+
+<p>— أي، إذا كان عنوان IP الخاص بخادمي هو 79.137.202.97، فإن رابط تسجيل الدخول الخاص بي سيكون:</p>
+
+<pre>http://79.137.202.97:8000/dashboard/</pre>
+
+<p>- إذا كان عنوان IP الخاص بك هو 129.128.127.126، فسيكون رابطك:</p>
+
+<pre>http://129.128.127.126:8000/dashboard/</pre>
+
+<p>استبدل <strong>عنوان_آي_بي_الخادم_الخاص_بك</strong> إلى عنوان IP الخاص بخادمك، واحصل على رابط تسجيل الدخول الخاص بك.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/7ab9ce16-fa31-471d-bf65-8a0c73dd1cc8" alt="vhod-v-panel">
+
+<p>أدخل اسم المستخدم وكلمة المرور التي أنشأتها قبل دقيقة، وستصل إلى لوحة التحكم المريحة والبسيطة لشبكة VPN الخاصة بك.</p>
+
+ <h2>الخطوة 3: العمل مع لوحة التحكم</h2>
+
+<p id="step3">بعد تسجيل الدخول بنجاح، ستصل إلى لوحة التحكم الرئيسية الخاصة بك. سيتم الآن تنفيذ جميع الأعمال هنا فقط: إنشاء الملفات، حذفها وتحريرها.</p>
+
+<p>اضغط <strong>Create User</strong> ,، لإنشاء أول تكوين لك لتوصيل الجهاز. عدد التكوينات غير محدود، يمكنك إنشاء ما تشاء. انظر الصورة.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/113a324b-67c5-402a-b759-70c3fbc77198" alt="sozdanie-usera">
+
+<p>في النافذة التي تظهر، تحتاج إلى إلغاء تحديد البروتوكولات <strong>Vmess</strong>, <strong>Vless</strong>, <strong>Trojan</strong> وترك المحدد فقط <strong>Shadowsocks</strong>. يمكن إزالة ذلك بالضغط على الدائرة ذات النقاط في الزاوية اليمنى العليا. انظر الصورة.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/d3f4f5c3-fd56-4bdc-97e1-feb103d10dba" alt="vibor-protokola">
+
+<p>نحصل على هذا:</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/58687b29-094c-4f19-9ac2-ddc7b5250ad4" alt="primer-vibrannogo-protokola">
+
+<p>ندخل <strong>Username</strong> (اسم المستخدم) بدون مسافات، كلمة واحدة، بأحرف إنجليزية ولا نغير أي شيء آخر. نضغط على الزر الأزرق <strong>Create User</strong>.</p>
+
+<p><strong>نصيحة!!!</strong> أعطوا الأسماء معاني واضحة ومفهومة لكم. على سبيل المثال، ,<strong>mai-mac</strong>, <strong>jena-android</strong>. أي أن جهازي يعمل بنظام ماكنتوش، وهاتف زوجتي يعمل بنظام أندرويد. ستفهمون لاحقًا السبب. انظروا إلى الإعدادات في لقطة الشاشة.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/c9f85618-157d-4234-a041-4d6777f0264e" alt="objie-nastroiki-usera">
+
+<p>تم إنشاء ما يسمى بالتكوين! الآن يجب نسخه ولصقه في البرنامج للاتصال بشبكة VPN الشخصية الخاصة بك. اتبع التعليمات الموجودة في لقطات الشاشة.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/f06490b7-5214-4e01-a75d-60f4e4660aba" alt="sohronenie-konfiga">
+
+<p>لقد أنشأت تكوينًا على البروتوكول <strong>Shadowsocks</strong>. احفظ التكوين المنسوخ في مكان ما في المفكرة على سطح المكتب، ستحتاج إليه قريبًا.</p>
+
+<p>بالنسبة لهذا التكوين على البروتوكول <strong>Shadowsocks</strong> يمكن استخدام برنامج واحد (<strong>Outline Client</strong>) لجميع الأجهزة وعلى أي أنظمة. وذلك بسبب سهولة التثبيت، التكامل مع أي أنظمة وبساطة البروتوكول <strong>Shadowsocks</strong> تم اختياره كبروتوكول ذو أولوية.</p>
+    
+<h2>الخطوة 4: توصيل الأجهزة بخادم VPN الخاص بك</h2>
+
+<p id="step4">كما ذكر أعلاه، لتوصيل أجهزتك بخادم VPN الذي أنشأته للتو، ستحتاج إلى برنامج واحد فقط لجميع الأجهزة. هذا البرنامج <strong>Outline Client</strong>. إنه <strong>عميل</strong> ,، وليس مديرًا!</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/df2628ad-de6a-4b2b-be8e-904c87c883c9" alt="client">
+
+<p><strong>Outline</strong> يعمل على برنامج مفتوح المصدر تم التحقق منه من قبل شركات مستقلة <strong>Radically Open Security</strong> في عامي 2018 و2022 و <strong>Cure53</strong> في عام 2018 (للمرجعية).</p>
+
+<p>بالإضافة إلى الأمان، فإن هذا العميل جيد أيضًا لأنه يمكن استخدامه على أي منصة (Windows، MacOS، iOS، Android، Linux). سنقوم بتثبيته على جميع الأجهزة التي نحتاجها. سنبدأ بنظام Windows.</p>
+
+<p>إذن، لنبدأ.</p>
+
+<h3>Windows</h3>
+
+<p>ننتقل عبر الرابط ونقوم بتنزيل <strong>عميل Outline</strong> — <a href="https://outline-vpn.com/">https://outline-vpn.com/</a> انظر الصورة.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/5f35861c-9a1f-4a61-b643-fec0b9e5c0b4" alt="ssilki-na-zagruzku">
+
+<p>نضغط على Windows ونحفظ ملف التثبيت.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/fb45466f-0831-4b30-a803-6b094df2ea03" alt="skachivanie-outline client">
+
+<p>بعد التحميل، نقوم بتثبيت البرنامج في النظام لدينا. عند التشغيل الأول، سيكون من الضروري تأكيد تثبيت محول الشبكة (لن يعمل بدون محول مثبت) <strong>انتباه!!!</strong>)، نضغط <strong>تثبيت</strong> ,، انظر الصورة أدناه.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/ba696fa2-624c-4154-aa23-ad658e786a6c" alt="ustanovka-adaptera">
+
+<p>وهذا كل شيء، بهذا تكون قد أتممت تقريباً كل شيء، نظامك <strong>Windows</strong> جاهزة لتوصيل جهازك <strong>VPN</strong> الخادم. انتقل إلى الخطوة التالية، وهي الاتصال.</p>
+
+<p>على الأنظمة الأخرى <strong>Android</strong>, <strong>MacOS</strong> و <strong>iOS</strong> يتم تثبيت البرنامج من هذه الصفحة نفسها <a href="https://outline-vpn.com/">https://outline-vpn.com/</a> (قم بنسخ الرابط ولصقه في المتصفح)، يتم تنزيل التطبيق عبر المتجر.</p>
+    
+<h2>الاتصال بخادم VPN والإعداد</h2>
+
+<p>في الخطوة الثالثة، عند العمل مع اللوحة، قمت بإنشاء التكوين وحفظته كما كان موصى به، في مكان ما في دفتر الملاحظات على سطح المكتب. إذا لم تقم بذلك (أحسنتم!)، فارجع إلى الخطوة 3 ونسخ التكوين مرة أخرى إلى الحافظة.</p>
+
+<p>يجب لصق التكوين المنسوخ في <strong>Outline</strong> للاتصال. نضغط على <strong>+</strong> في الزاوية العلوية اليمنى <strong>Outline</strong> ونقوم بلصق الكود المنسوخ، نضغط <strong>إضافة الخادم</strong> ,، انظر الصورة.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/90656cdb-988c-4f6c-86cb-0802c6188cb9" alt="vstavka-konfiga">
+
+<p>تم، اضغط على <strong>اتصال</strong></p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/e89f2036-8358-4b83-9fd5-e3ccc79da71a" alt="podkluchenie-outline-client">
+
+<p>كل شيء! تهانينا، أنتم الآن مالكون ل <strong>VPN</strong> خاص بكم.</p>
+
+<p><strong>انتباه!!!</strong> لكل جهاز تكوين خاص به! تكوين واحد لكل جهاز متصل. أي، يجب عليك توصيل جهاز كمبيوتر واحد لنفسك على <strong>Windows</strong> ,، والكمبيوتر الثاني <strong>ماكينتوش</strong> والهاتف على <strong>أندرويد</strong>. يجب عليك إنشاء تكوين خاص لكل جهاز في لوحة التحكم ونسخ الكود من كل منها ولصقه في كل جهاز تم تثبيته عليه <strong>Outline Client</strong>. لكل جهاز عدد من التكوينات، وكذلك لكل جهاز برنامج خاص به <strong>Outline Client</strong>.</p>
+
+<p>افترض أنك تريد مشاركة الأصدقاء والزملاء في العمل. عليك أن تشرح أن على الصديق أن يضع <strong>Outline Client</strong> إلى نظامه، وأنت ترسل له رمزًا سريًا شخصيًا يجب عليه إدخاله في برنامجه. مسبقًا تقوم بإنشاء التكوين اللازم له. إذا كان صديقك أو قريبك بحاجة إلى توصيل عدة أجهزة، مثل الكمبيوتر والهاتف، فإنك تقوم بإنشاء تكوينين ويدخل خصمك في <strong>Outline Client</strong> لكل جهاز تكوينات مختلفة. لهذا السبب، في الخطوة الثالثة، من الضروري إعطاء أسماء تكوينات ذات معنى ومفهومة لك. انظر الصورة.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/20f31d40-523c-4bcf-b597-11ef9d29ca3f" alt="polzovateli-paneli">
+
+ <h2>الخطوة 5: الاتصال بالإنترنت والتحقق من عمل خادم VPN</h2>
+
+<p id="step5">بعد أن قمت بكل شيء:</p>
+<ul>
+    <li>قمت بإعداد <strong>VPN</strong> الخاص بك؛</li>
+    <li>أنشأنا التكوينات في لوحة التحكم؛</li>
+    <li>قمنا بتحميل <strong>Outline Client</strong> وأدخلنا التكوين المطلوب؛</li>
+    <li>قمت بتشغيل <strong>Outline Client</strong> ,، أي ضغطت على الزر <strong>اتصال</strong>;</li>
+</ul>
+
+<p>حان الوقت لفحص عمل <strong>VPN</strong> خاص بكم.</p>
+
+<p>للتأكد من أنك متصل بالفعل بالخادم، تحتاج إلى التحقق من <strong>IP</strong>. ننتقل إلى هذا الموقع ونشاهد: <a href="https://whoer.is/ru" target="_blank" rel="noopener noreferrer">https://whoer.is/ru</a> (انسخ والصق هذا الرابط في نافذة المتصفح).</p>
+
+<p>إذا لم يكن برنامج <strong>Outline Client</strong> غير متصلة، فسيتم عرض الخاص بك <strong>IP</strong> وعنوان الموقع الخاص بك.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/bb1a114f-291c-403f-8d02-27ee4761e854" alt="bez-vpn">
+
+<p>إذا <strong>Outline Client</strong> تم التفعيل والضغط على زر الاتصال، فسيتم تحديد موقعك و <strong>IP</strong> العنوان.</p>
+
+<img loading="lazy" src="https://github.com/user-attachments/assets/6eacbec7-6e77-4e4f-8c95-5236d749dffe" alt="s-vpn">
+
+<p>هذا كل شيء، الخاص بك <strong>VPN</strong> الخادم يعمل بكامل طاقته. الآن يمكن الخروج والتواصل دون أي توتر مع <strong>ChatGPT</strong>. قراءة المدونات الأمريكية حول <strong>SEO</strong>. على سبيل المثال، أنا مشترك في مسوق أمريكي <strong>براين دين</strong>; موقعه من روسيا مغلق. لكن الرسائل التي تحتوي على مقالات جديدة لا تزال تصل، وأنا أقرأها فقط عبر <strong>VPN</strong>. الوصول بسهولة إلى <strong>Google Ads</strong> (منصة إعلانية) إلخ.</p>
+
+<p>حسنًا، بدلاً من الدليل، حصلنا على بعض الرسوم الهزلية مع الصور. آمل أنني تمكنت من توضيح التفاصيل بشكل واضح، كيفية القيام بذلك <strong>VPN</strong> خادم بنفسك.</p>
+    
+ <h2>إيجابيات وسلبيات استخدام خادم VPN الخاص بك</h2>
+
+<p id="pros-cons">من السلبيات، ربما فقط اثنان: السعر أعلى بمقدار 200 روبل مقارنة بالعروض في <strong>تيليجرام</strong> ,، وعملية التنظيم نفسها. لكنني حاولت توضيح العملية بأكملها بدقة وبالصور بشكل واضح. لذلك يمكن اعتبار هذا العيب غير موجود. يبقى واحد فقط. ما العيوب التي تعرفها؟ اكتب في التعليقات.</p>
+
+<h3>من المزايا؟ هناك الكثير منها!</h3>
+
+<p>أحد المزايا هو المكانة (الشعبية). إذا قمت، بغض النظر عن العمر والبيئة، بإشراك أصدقائك (زملاء الدراسة، زملاء الجامعة، الطلاب، زملاء العمل، وحتى الأقارب) في <strong>VPN</strong> ,، فإن شعبيتك ستزداد بشكل حاد! فكر بنفسك - معظم الناس من حولك ليس لديهم فكرة عن كيفية عمل <strong>VPN</strong> ,، لديك خادم شخصي! هذا ببساطة خارج الحدود! إذا تم تقديمه بذكاء، يمكنك أن تصبح نجم الفريق بسرعة كبيرة.</p>
+
+<p>هناك العديد من المزايا بالفعل، وأهمها هو حماية بياناتك. ما هو <strong>VPN</strong> من الأفضل قراءته بشكل منفصل، فهذا لا يدخل ضمن هذا الدليل.</p>
+
+<p>وعدت بأن أشرح لماذا لا يُفضل استخدام العروض المدفوعة من <strong>تيليجرام</strong>. كل شيء سيصبح واضحًا لكم الآن. كل شيء مرتبط بـ <strong>IP</strong> العنوان. إنه على خادمك <strong>واحد (1)</strong>. تقوم بتوصيل 2-3 أو أكثر من أجهزتك عليه. بالإضافة إلى 4 أجهزة لزوجتك، على سبيل المثال، بالإضافة إلى بضعة أجهزة للأصدقاء. وكل هذا على خادم واحد ومن <strong>IP</strong> العنوان. هذا طبيعي ولا يوجد شيء خطير في ذلك، ولن يؤثر على سرعة الاتصال بأي شكل من الأشكال. لقد أخذت الخادم من <strong>RAM</strong> من 1 جيجا وعرض نطاق ترددي من 1 جيجا في الثانية.</p>
+
+<p>في الخدمات التي تقدم في <strong>تيليجرام</strong> ,، يحدث نفس الشيء: يتم فتح الخادم بنفس الطريقة تقريبًا، ثم يتم تعليق العملاء وتوزيعهم (بالمناسبة، يمكنك في اللوحة التحكم في حركة المرور وفي حالة الضرورة قطع الأكسجين). كل هذا يحدث من خادم واحد ومن <strong>IP</strong> العنوان. أي أنك تشارك عرض النطاق الترددي البالغ 1 جيجابايت مع 5000 - 8000 مستخدمين مثلك. ومن هنا تأتي الانقطاعات في الاتصال، البطء وما إلى ذلك.</p>
+
+<p>في بعض الأحيان، يتم حظر هذه الخوادم ببساطة، ويفتح موظفو هذه الخدمة خوادم جديدة وينقلونك إلى خادم جديد <strong>VPN</strong> القناة. في الواقع، ربما لن تلاحظ ذلك حتى. لكن سرعة الاتصال ستكون دائمًا بطيئة. وكذلك، لن تسمح لك بعض الخدمات الروسية بالدخول، على سبيل المثال، إلى البريد <strong>ياندكس</strong>. يحدث هذا بسبب النشاط الكبير من واحد <strong>IP</strong> العنوان. تخيل أنه من واحد <strong>IP</strong>يتدفق المرور إلى الموقع مباشرة من 7000 مستخدم.</p>
+
+<p>عند توصيل مائة - أو أكثر من الأجهزة إلى <strong>VPN</strong> الخادم، لن يتم حظرك أبدًا وستكون سرعة الاتصال عالية.</p>
+  
+ <h2>الخاتمة</h2>
+
+<p id="conclusion">استخدام <strong>VPN</strong> في روسيا بعد العقوبات التي فرضتها الدول غير الصديقة، أصبحت ذات أهمية كما لم تكن من قبل.</p>
+
+<p>ما هي الطريقة التي يجب استخدامها؟</p>
+
+<ul>
+    <li>مجاني</li>
+    <li>خدمات خارجية من <strong>تيليجرام</strong></li>
+    <li>أو إنشاء <strong>VPN</strong> خاص بك</li>
+</ul>
+
+<p>يعتمد على احتياجاتك.</p>
+
+<p>إذا كنت تمارس نشاطًا على الإنترنت (لديك موقع، تعمل مع <strong>ChatGPT</strong> ,، تقوم بإعداد الإعلانات، وتعمل في التسويق وما إلى ذلك)، فإن الحل المثالي هو إنشاء <strong>VPN</strong>.</p>
+
+<p>إذا كنت ترغب فقط في قراءة الأخبار الأجنبية، فربما يكون هنا كافياً استخدام الخدمة المجانية (يجب اختبارها، لقد استخدمتها حتى خريف 2023 دون مشاكل).</p>
+
+<p>إذا كنت تلهو مع <strong>ChatGPT</strong> وإذا كنت تستخدم أحيانًا خدمات أجنبية، فهنا ربما يمكنك استخدام الخدمات الخارجية المقدمة في <strong>تيليجرام</strong> (لم أختبر، لكنني دفعت <strong>ChatGPT</strong> ,، ثم جاء الاقتراح للاستفادة من <strong>VPN</strong> مقابل 300 — 400 روبل. كان لدي واحد خاص بي، لا أستطيع أن أقول شيئًا). من الناحية النظرية، يجب أن يعملوا. تم وصف عملهم أعلاه.</p>
+
+<p>الاختيار لك.</p>
+        <div id="yakor_01" style="text-align: center;">
+            <video id="movie" autoplay="" loop="" muted="" playsinline="" width="100%" height="auto" controls="">
+<source src="https://ruinterbiz.ru/video/vpn/kak-sdelat-vpn.mp4" type="video/mp4" loading="lazy">
+متصفحك لا يدعم الفيديوهات المدمجة.
+     <a href="https://ruinterbiz.ru/video/vpn/kak-sdelat-vpn.mp4">تحميل MP4</a>.
+
+
+</video>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+        var v = document.getElementById("movie");
+
+        // Попытка автозапуска (если браузер блокирует - ошибка просто логируется)
+        v.play().catch(() => console.log("Автозапуск заблокирован браузером"));
+
+        // Остановка/запуск по клику
+        v.addEventListener("click", function () {
+            if (v.paused) {
+                v.play();
+            } else {
+                v.pause();
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Адаптация для мобильных */
+    @media (max-width: 768px) {
+        video {
+            height: auto;
+        }
+    }
+</style><span style="font-size: 18pt; font-family: helvetica, arial, sans-serif;"><strong>خادم VPN شخصي أو مؤسسي!</strong></span></div>
+<h2><span style="font-family: helvetica, arial, sans-serif;">تعليمات مفصلة</span></h2>
+<span style="font-family: helvetica, arial, sans-serif;">نسجل في <a href="https://aeza.net/?ref=455016" target="_blank" rel="noopener">Aeza.net</a>وننتقل إلى إعدادات خادم VPN الخاص بك الذي لا يمكن اختراقه.</span><p></p>
+    
+<p>آمل أنني تمكنت من شرح كيفية إنشاء خادم VPN بنفسك.</p>  
+
+        
+
+        <script src="https://utteranc.es/client.js"
+        repo="5-tstas/5-tstas.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+ </div>   
+</body>
+</html>
