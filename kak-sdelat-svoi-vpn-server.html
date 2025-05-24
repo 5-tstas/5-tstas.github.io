@@ -85,26 +85,29 @@
             text-decoration: underline;
 }
  #bg_popup {
-    background-color: rgba(0, 0, 0, .8);
-    position: fixed;
-    z-index: 99999;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
 }
-
 #popup {
-    background: #204a55;
-    width: 480px;
-    height: 470px;
-    margin: 5% auto;
-    padding: 5px 20px 13px;
-    border: 2px solid #1ba600;
-    position: relative;
-    -webkit-box-shadow: 0 0 20px #000;
-    -moz-box-shadow: 0 0 20px #000;
-    box-shadow: 0 0 20px #000;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  text-align: center;
+}
+.close1 {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #333;
 }
        
 
@@ -571,30 +574,23 @@ document.addEventListener("DOMContentLoaded", function () {
         async>
 </script>
  </div> 
-    <script type="text/javascript">
-    var delay_popup = 16000;
-    setTimeout("document.getElementById('bg_popup1').style.display='block'", delay_popup);
-</script>
-
-
-<div id="bg_popup">
+    <div id="bg_popup">
   <div id="popup">
-<h3>Используй бесплатного бота от Аеза VPN</h3>
-<h3>Не мучайся со сложными настройками, переходи в бота</h3>
-<h3>Он все сделает сам!</h3>
-<div style="text-align: center;">
-<a style="align: center;padding:10px 25px; cursor: pointer; background-image:
-linear-gradient(#0a0002, #0033ff); color: #ffffff; text-shadow: rgba(0, 0, 0, 0.247059)
-0px -1px 0px; background-color: #0a0002; border: 5px solid red; border-color: rgba(255, 0, 51, 1)
-rgba(255, 0, 51, 1) rgba(255, 0, 51, 1); border-radius: 5px; line-height: 20px;
-font-family: Arial, Helvetica, sans-serif; font-size: 14px;
-font-weight: bold; font-style: italic; text-decoration: none;
-height: 54px; width: 100%; margin: auto;"
-href="https://5-tstas.github.io/kak-sdelat-svoi-vpn-server.html#aeza-2" target="_blank">
-ПЕРЕЙТИ В БОТА</a></div>
-<a class="close1" href="#" title="Закрыть" onclick="document.getElementById('bg_popup1').style.display='none'; return false;">X</a>
+    <a class="close1" href="#" onclick="document.getElementById('bg_popup').style.display='none'; return false;">X</a>
+    <h3>Используй бесплатного бота от Аеза VPN</h3>
+    <h3>Не мучайся со сложными настройками — бот всё сделает сам!</h3>
+    <a style="display: inline-block; padding:10px 25px; background: #0033ff; color: white; border-radius: 5px; font-weight: bold; text-decoration: none;"
+       href="https://5-tstas.github.io/kak-sdelat-svoi-vpn-server.html#aeza-2" target="_blank">
+      ПЕРЕЙТИ В БОТА
+    </a>
+  </div>
 </div>
-</div>
-
+<script>
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      document.getElementById('bg_popup').style.display = 'block';
+    }, 16000); // 16 секунд
+  });
+</script>
 </body>
 </html>
