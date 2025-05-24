@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Телеграмм бот выполняющий функции полной настройки VPN сервера.">
+    <title>3-х шаговый Аеза VPN бот</title>
+    <style>
+        
+            body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #222;
+        }
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 22px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .note {
+            background: #fffae6;
+            padding: 10px;
+            border-left: 5px solid #f1c40f;
+            margin: 20px 0;
+        }
+        .toc {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            margin: 5px 0;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+}
+        
+
+.bold-h3 {
+            font-weight: bold;
+            font-size: 1.75em; /* размер соответствует H3 */
+        }
+        img {
+    max-width: 100%;
+    height: auto; /* Сохраняет пропорции изображения */
+}
+
+    </style>
+    <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter98691088 = new Ya.Metrika({ id:98691088, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], x = "https://mc.webvisor.org/metrika/watch_ww.js", s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; for (var i = 0; i < document.scripts.length; i++) { if (document.scripts[i].src === x) { return; } } s.type = "text/javascript"; s.async = true; s.src = x; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/98691088" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Аеза VPN бот это простая установка VPN</h1>
+        
+ <p>Аеза VPN бот — это простая установка и настройка личного VPN сервера через телеграмм бота. 
+Мы рады предложить Вам простое техническое решение по настройке своего личного ВПН сервера. Вам не придется пользоваться командной строкой, пытаясь настроить свой не подлежащий блокировки и не пробиваемый ВПН сервер.</p> 
+        
+<p>Все это сделает бот.</p> 
+        
+        <img loading="lazy" src="https://5-tstas.github.io/images/aeza-vpn.jpg" />
+        
+<p>Читайте краткое описание работы бота и его функционала, смотрите короткое видео с подробной демонстрацией бота. </p>
+        
+        
+        <h2>Аеза VPN телеграмм бот - краткое описание функционала</h2>
+        
+        
+ <p>Бот после ввода данных подключается к вашему арендованному у Аеза серверу и настраивает ваш VPN.</p> 
+        
+ <ul>
+            <li>Устанавливает протокол Shadowsocks. Этот протокол разработан китайцем и отлично зарекомендовал себя в Китае для обхода различных запретных каналов интернета. 
+(Кому интересно, вот ссылка на Вики - <a href="https://en.wikipedia.org/wiki/Shadowsocks" target="_blank">Статья на Вики (на Английском языке)</a>)</li>
+
+            <li>Создает первый канал подключения, каналов может быть не ограниченное количество. Каждый канал — это одно устройство, подключаемое к интернету через ваш ВПН сервер. К примеру - телефон, комп, телефон бабушки и т. д.</li>
+
+            <li>Выводит ключ для копирования.</li>
+
+            <li>Дает ссылку на скачивание специальной программы клиента с нашего сервера, так как VPN у вас создан, но не включен и с официального сайта скачивание могут заблокировать иноземцы, они тоже блокируют доступ к своим сервисам ряду стран.</li> 
+     
+     <img loading="lazy" src="https://5-tstas.github.io/images/aeza-vpn-bot.jpg" />
+
+<p>По сути бот выполняет все те функции, которые Вы бы должны были выполнить по подробной инструкции в этой статье - ШАГ 2: <a href="https://5-tstas.github.io/kak-sdelat-svoi-vpn-server.html#aeza-1" target="_blank">Настройка сервера с установкой панели и протокола</a>, а также Шаг 3: Работа с панелью управления, созданиеи нужных ключей. Все это делает наш бот. Читай внимательно ниже краткую инструкцию по запуску бота и смотри видео инструкцию ниже.</p>  
+     
+     <h2>Шаг 1 Как запустить бота по созданию своего VPN сервера от Аеза</h2>
+
+<p>При переходе в бота (ссылка закреплена в верху), нажимаем старт, бот поздоровается и предложит перейти по ссылке на сайт Аеза для аренды сервера, переходите по ссылке, обязательно.</p>
+
+<p>Регистрируетесь на сайте Аезы и выбираете себе сервер с нужной Европейской локацией. Подробная инструкция тут (<a href="https://5-tstas.github.io/kak-sdelat-svoi-vpn-server.html#aeza-2" target="_blank"> - Шаг 1: Арендуем забугорный сервер</a>). Здесь дублировать не буду.</p> 
+
+<p><strong>ВНИМАНИЕ!!!</strong> Изучите данный раздел, там надо при покупке отключить Бэкап, иначе оплата будет гораздо больше!</p> 
+
+<p>После покупки сервера, вам на почту придет письмо с данными, там будут пароль и IP адрес. Сохраните это письмо и данные, где ни будь. Это данные для входа на Ваш сервер.</p>
+
+<p>Вернитесь в бот и нажмите "Начать установку", бот запросит IP и пароль, введите эти данные один раз, бот подключится по SSH к вашему серверу, обновит его, установит протокол Shadowsocks и выдаст Вам ключ для вставки в программу Outline Client.</p> 
+
+<p>Бот даст ссылку на скачивание программы Outline Client с нашего сервера. После запуска ВПН просто обновите программу через интернет, могли выйти обновления. Смотрите видео инструкцию по запуску и работе бота.</p>
+
+<p>Все, ваш Бронированный личный VPN сервер готов и одно устройство уже защищено, переходите по ссылке и настраивайте своего Аеза VPN бота.</p>
+
+<a href="https://t.me/vpn_setup_bot">ПЕРЕЙТИ В БОТА</a>
+     
+<h2>ШАГ 2 Функционал бота от Аеза ВПН</h2>
+
+<p>Дальнейшее управление Вашим VPN сервером осуществляется через бота. Бот имеет нижнее основное меню, которое открывает ряд настроек, рассмотрим по порядку:</p>
+     
+     <img loading="lazy" src="https://5-tstas.github.io/images/vpn-bot-aeza.jpg" />
+
+<p>1.	Изменить язык - На данный момент доступно 3 языка, Русский (по умолчанию), Английский и Арабский.</p>
+
+<p>2.	Настройки - Открывает окно с 2 подменю, можно добавить новое устройство (конфиг) и получить ключ или вывести список всех подключений для добавления или удаления устройств.</p>
+
+<p>3.	Помощь - в разработке, пишите комментарии к описанию, ваши замечания, вопросы, пожелания.</p>
+
+<p>4.	Начать установку - с этой кнопки Вы начали, но тем не менее, при случайном нажатии на данную кнопку, бот послушно подключится к серверу, выполнит проверку на наличие установленного протокола Shadowsocks, найдя его, вежлево скажет, протокол уже установлен и предложит создать новый конфиг, то есть подключить еще одно устройство.</p>
+
+<p>Смотрите видео инструкцию по работе бота</p>
+
+<h2>Видео инструкция по использованию и запуску бота Аеза ВПН</h2>
+     
+<video id="movie" autoplay loop muted playsinline width="100%" height="auto" controls>
+<source src="https://ruinterbiz.ru/video/vpn/aeza-vpn-bot.mp4" type="video/mp4" loading="lazy" />
+Ваш браузер не поддерживает встроенные видео. 
+    <a href="https://ruinterbiz.ru/video/vpn/aeza-vpn-bot.mp4">Скачать MP4</a>.
+
+
+</video>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+        var v = document.getElementById("movie");
+
+        // Попытка автозапуска (если браузер блокирует - ошибка просто логируется)
+        v.play().catch(() => console.log("Автозапуск заблокирован браузером"));
+
+        // Остановка/запуск по клику
+        v.addEventListener("click", function () {
+            if (v.paused) {
+                v.play();
+            } else {
+                v.pause();
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Адаптация для мобильных */
+    @media (max-width: 768px) {
+        video {
+            height: auto;
+        }
+    }
+</style><span style="font-size: 18pt; font-family: helvetica, arial, sans-serif;"><strong>Личный или корпоративный VPN сервер!</strong></span>
+
+<span style="font-family: helvetica, arial, sans-serif;">Переходим в бота <a href="https://t.me/vpn_setup_bot" target="_blank" rel="noopener">VPN Ассистент Бот</a> и переходим к настройкам своего бронерованного VPN сервера.</span>    
+
+<p>В ближайших планах - разработка аналитики по трафику, потребляемому каждым устройством. Но и Ваши замечания и пожелания. Пишите в комментариях.</p>
+     
+<h2>ШАГ 3 Проверка работы Вашего VPN сервера от Аеза</h2>
+
+<p>После того, как вы настроили свое первое подключенное устройство (создали конфиг), к примеру на телефоне, то и проверяйте на телефоне, бот даст ссылку на официальный сайт проверки IP адреса, где покажут IP адрес арендованного в Европе сервера. Если данные - IP адрес и Страна совпадают, значит ВПН работает.</p>
+
+<p>Для технической проверки откройте ниже видео с Ютуба про работу бота. Если видео в течении 3 минут идет без перебоев и тормозов, значит ВПН работает действительно. Для поддержания проекта ставьте лайки к видео и обязательно комминт о работе бота. 
+Огромное спасибо.</p>
+
+<h2>ВИДЕО С ЮТУБА для проверки</h2>
+
+<p>Надеемся облегчить Вашу жизнь по установке и администрированию ВПН сервера нашим - Аеза VPN бот.</p>    
+
+  <script src="https://utteranc.es/client.js"
+        repo="5-tstas/5-tstas.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+ 
+</body>
+</html>      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
