@@ -169,13 +169,41 @@
 
 <h2>Видео инструкция по использованию и запуску бота Аеза ВПН</h2>
 
-     <p>В РАЗРАБОТКЕ</p>
-     
-<span style="font-size: 18pt; font-family: helvetica, arial, sans-serif;"><strong>Личный или корпоративный VPN сервер!</strong></span>
+    <video id="movie" autoplay loop muted playsinline width="100%" height="auto" controls>
+<source src="https://ruinterbiz.ru/video/vpn/aeza-vpn-bot.mp4" type="video/mp4" loading="lazy" />
+Ваш браузер не поддерживает встроенные видео. 
+    <a href="https://ruinterbiz.ru/video/vpn/aeza-vpn-bot.mp4">Скачать MP4</a>.
 
-<span style="font-family: helvetica, arial, sans-serif;">Переходим в бота <a href="https://t.me/vpn_setup_bot" target="_blank" rel="noopener">VPN Ассистент Бот</a> и переходим к настройкам своего бронерованного VPN сервера.</span>    
 
-<p>В ближайших планах - разработка аналитики по трафику, потребляемому каждым устройством. Но и Ваши замечания и пожелания. Пишите в комментариях.</p>
+</video>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+        var v = document.getElementById("movie");
+
+        // Попытка автозапуска (если браузер блокирует - ошибка просто логируется)
+        v.play().catch(() => console.log("Автозапуск заблокирован браузером"));
+
+        // Остановка/запуск по клику
+        v.addEventListener("click", function () {
+            if (v.paused) {
+                v.play();
+            } else {
+                v.pause();
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Адаптация для мобильных */
+    @media (max-width: 768px) {
+        video {
+            height: auto;
+        }
+    }
+</style><span style="font-size: 18pt; font-family: helvetica, arial, sans-serif;"><strong>Личный или корпоративный VPN сервер!</strong></span>
+
+<span style="font-family: helvetica, arial, sans-serif;">Переходим в бота <a href="https://t.me/vpn_setup_bot" target="_blank" rel="noopener">VPN Ассистент Бот</a> и переходим к настройкам своего бронерованного VPN сервера.</span> <p>В ближайших планах - разработка аналитики по трафику, потребляемому каждым устройством. Но и Ваши замечания и пожелания. Пишите в комментариях.</p>
      
 <h2>ШАГ 3 Проверка работы Вашего VPN сервера от Аеза</h2>
 
@@ -197,7 +225,8 @@
         crossorigin="anonymous"
         async>
 </script>
- 
+     
+
 </body>
 </html>      
         
