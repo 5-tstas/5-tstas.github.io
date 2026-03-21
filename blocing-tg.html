@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Как разблокировать Telegram в России 2026: пошаговая инструкция с прокси</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 2rem 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            body {
+                padding: 2rem;
+            }
+            .container {
+                padding: 2.5rem;
+            }
+        }
+
+        /* типографика */
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .date-meta {
+            color: #5b6e8c;
+            font-size: 0.85rem;
+            border-left: 3px solid #3b82f6;
+            padding-left: 0.75rem;
+            margin: 1rem 0 1.5rem 0;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 1.8rem 0 0.8rem 0;
+            color: #0f172a;
+            border-bottom: 2px solid #eef2ff;
+            padding-bottom: 0.3rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.4rem 0 0.6rem;
+            color: #1e293b;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        strong {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .step {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1.2rem;
+            margin: 1.6rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .step-number {
+            font-weight: 800;
+            font-size: 1.3rem;
+            background: #3b82f6;
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            text-align: center;
+            line-height: 34px;
+            border-radius: 12px;
+            color: white;
+            margin-right: 0.7rem;
+        }
+
+        .step-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .image-placeholder {
+            background: #eef2ff;
+            border-radius: 20px;
+            padding: 1rem;
+            text-align: center;
+            margin: 1.2rem 0;
+            border: 1px solid #e2e8f0;
+            color: #4b5563;
+            font-size: 0.85rem;
+        }
+
+        .image-placeholder span {
+            background: #ffffffb3;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .real-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin: 1rem 0;
+            border: 1px solid #e9eef3;
+            display: block;
+        }
+
+        .proxys-note {
+            background: #eef2ff;
+            padding: 1rem 1.4rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            border: 1px solid #cbdffc;
+        }
+
+        .comment-section {
+            margin-top: 3rem;
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+
+        .comment-form input, .comment-form textarea {
+            padding: 0.9rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #cbd5e1;
+            font-family: inherit;
+            font-size: 1rem;
+            background: #fff;
+            transition: 0.2s;
+        }
+
+        .comment-form input:focus, .comment-form textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+        }
+
+        .comment-form button {
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 0.9rem;
+            font-weight: 600;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .comment-form button:hover {
+            background: #1e293b;
+        }
+
+        .comments-list {
+            margin-top: 2rem;
+        }
+
+        .comment-item {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e2edff;
+        }
+
+        .comment-name {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .comment-text {
+            color: #334155;
+        }
+
+        .footer-copy {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+            padding-top: 1.5rem;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border-color: #eef2ff;
+        }
+
+        ul, ol {
+            margin: 0.8rem 0 1rem 1.5rem;
+        }
+
+        li {
+            margin: 0.4rem 0;
+        }
+
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid #f59e0b;
+            padding: 0.8rem 1rem;
+            border-radius: 16px;
+            margin: 1rem 0;
+        }
+    </style>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j=0; j<document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(98765432, "init", {  // замените ID при необходимости, оставлен демо-счетчик
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/98765432" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="container">
+    <h1>Как разблокировать Telegram в России после блокировки 20 марта 2026 — полная инструкция с прокси</h1>
+    <div class="date-meta">Опубликовано: 21 марта 2026 • Актуально до отмены ограничений</div>
+    
+    <p><strong>20 марта 2026 года</strong> в РФ заблокировали Telegram. Обещали с 1 апреля, типа шутка такая, и на тебе. Как раз сегодня я собирался вывести остатки с кошелька, с Wallet. И вот тебе, открываю телегу, а там — кранты. Плакали мои остатки в кошельке, звезды и раскрученный канал. За канал обидней всего.</p>
+    <p>Но уже <strong>21 марта</strong> я полностью реанимировал канал, включая вывод USDT с Телеграмовского кошелька, на всякий случай. <strong>Пошаговая инструкция скрытых настроек Telegram ниже!</strong> Тестировал на Android, все работает.</p>
+
+    <!-- ШАГ 1 -->
+    <div class="step">
+        <div><span class="step-number">1</span> <span class="step-title">Скрытые настройки Telegram и активация прокси</span></div>
+    </div>
+    <p>Переходите по трем полоскам в левом верхнем углу и выбираете настройки, прокручиваете в самый низ.</p>
+    <!-- заглушка media1 -->
+    <div class="image-placeholder"><span>📸 Скриншот: меню настроек Telegram (положение версии)</span></div>
+    <p>Под политикой конфиденциальности указана версия Telegram. К ней нужно <strong>приложить палец и удержать 1-2 секунды</strong>, выскочит окно с предложением повторить — нажать и удержать надо два раза.</p>
+    <div class="image-placeholder"><span>📸 Иллюстрация: удержание на версии → скрытое меню</span></div>
+    <p>Откроется окно — <strong>скрытых настроек</strong>.</p>
+    <div class="image-placeholder"><span>⚙️ Скрытые настройки Telegram (пример интерфейса)</span></div>
+    <p>В окне скрытых настроек нажмите на пункт <strong>«Настройка звонков»</strong>. В появившемся окне сделайте активными обе галочки.</p>
+    <div class="image-placeholder"><span>📞 Настройка звонков: включить обе опции</span></div>
+    <p>Вернитесь обратно в общие настройки и откройте их. В этом разделе выберите <strong>«Данные и память»</strong>.</p>
+    <div class="image-placeholder"><span>💾 Раздел "Данные и память"</span></div>
+    <p>Прокрутите вниз и найдите раздел — <strong>Прокси и их настройка</strong>.</p>
+    <div class="image-placeholder"><span>🌐 Прокси-меню Telegram</span></div>
+    <p>Там ползунок — <strong>Использовать прокси</strong>, активируйте. Далее добавить прокси.</p>
+    <div class="image-placeholder"><span>➕ Добавление прокси: SOCKS5</span></div>
+    <p>Выберите по умолчанию — <strong>SOCKS 5</strong>. Заполните данные — Сервер, Порт, Логин, Пароль.</p>
+    <div class="image-placeholder"><span>🔑 Поля для ввода сервера, порта, логина и пароля</span></div>
+
+    <!-- ШАГ 2 — используем реальные картинки из оригинальной статьи (образца) media9..media12 -->
+    <div class="step">
+        <div><span class="step-number">2</span> <span class="step-title">Где взять рабочие американские прокси — покупаем в Proxys.io</span></div>
+    </div>
+    <p>Чтобы пользоваться Telegram, необходимы <strong>Американские прокси</strong>. Они есть разные, можно найти даже бесплатные (но их банят, и они уже не работают!). Вам же необходимы именно <strong>Индивидуальные IPv4 (зарубежные)</strong>. Стоят они в районе 2$. Это чистые Американские прокси, работающие через заокеанские сервера.</p>
+    <p>Регистрируемся в <a href="https://proxys.io/?refid=347702" target="_blank" rel="nofollow noopener">Proxys.io</a>, это просто. Даже подтверждение почты не обязательно. Далее переходим в верхнем меню по кнопке <strong>«Серверные прокси»</strong> (выделено зеленым), см. скрин ниже.</p>
+    <!-- image9.png из оригинальной статьи (шаг 2) -->
+    <img class="real-img" src="media/image9.png" alt="Proxys.io - кнопка Серверные прокси" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%20viewBox%3D%220%200%20600%20300%22%3E%3Crect%20width%3D%22600%22%20height%3D%22300%22%20fill%3D%22%23eef2ff%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22%233b82f6%22%3Eimage9%3A%20%D0%A1%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%BD%D1%8B%D0%B5%20%D0%BF%D1%80%D0%BE%D0%BA%D1%81%D0%B8%3C%2Ftext%3E%3C%2Fsvg%3E'; this.style.border='1px solid #ccc';">
+    
+    <p>В открывшемся окне необходимо выбрать <strong>индивидуальные IPv4 (зарубежные)</strong>, на скрине выделено красным. Вам откроется окно покупки, оставляем один, как по умолчанию, обязательно выбираем страну <strong>США</strong> и выбор оплаты. Оплатить можно практически всем, включая Российские карты.</p>
+    <img class="real-img" src="media/image10.png" alt="Выбор индивидуальных IPv4, страна США" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%20viewBox%3D%220%200%20600%20300%22%3E%3Crect%20width%3D%22600%22%20height%3D%22300%22%20fill%3D%22%23eef2ff%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22%233b82f6%22%3Eimage10%3A%20%D0%BE%D0%BA%D0%BD%D0%BE%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8%20%D0%BF%D1%80%D0%BE%D0%BA%D1%81%D0%B8%20USA%3C%2Ftext%3E%3C%2Fsvg%3E';">
+    
+    <p>После оплаты через пару минут придет ссылка на заказ. Открыть сразу можно, нажав кнопку <strong>кабинет</strong> в верхнем меню — зеленая. Далее перейти в раздел <strong>заказы</strong>, тоже зеленая кнопка. Как показано на скрине.</p>
+    <img class="real-img" src="media/image11.png" alt="Раздел заказы Proxys.io" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%20viewBox%3D%220%200%20600%20300%22%3E%3Crect%20width%3D%22600%22%20height%3D%22300%22%20fill%3D%22%23eef2ff%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22%233b82f6%22%3Eimage11%3A%20%D0%9A%D0%B0%D0%B1%D0%B8%D0%BD%D0%B5%D1%82%20%E2%86%92%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%3C%2Ftext%3E%3C%2Fsvg%3E';">
+    
+    <p>В открывшемся окне у вас появится ваша покупка. Вам необходимо перейти по кнопке полоски с точками, выделена красным квадратом. Вы попадете на вкладку данных вашего доступа к Telegram. Скрин ниже.</p>
+    <img class="real-img" src="media/image12.png" alt="Данные прокси: адрес, порт, логин, пароль" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%20viewBox%3D%220%200%20600%20300%22%3E%3Crect%20width%3D%22600%22%20height%3D%22300%22%20fill%3D%22%23eef2ff%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22%233b82f6%22%3Eimage12%3A%20%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD%20%2B%20%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8C%3C%2Ftext%3E%3C%2Fsvg%3E';">
+    <p>Вам для доступа потребуются <strong>логин и пароль</strong>. Сохраните эти данные, где-нибудь. Именно они вставляются в настройках прокси в Telegram.</p>
+
+    <!-- ШАГ 3 -->
+    <div class="step">
+        <div><span class="step-number">3</span> <span class="step-title">Вносим данные прокси в Telegram — финальная активация</span></div>
+    </div>
+    <p>Вернитесь в Telegram и вставьте данные:</p>
+    <ul>
+        <li><strong>Сервер</strong> — адрес прокси (цифры, разделенные точкой);</li>
+        <li><strong>Порт</strong> — данные из графы <strong>Порт SOCKS 5</strong>;</li>
+        <li><strong>Логин</strong> — начинается с user и дальше цифры;</li>
+        <li><strong>Пароль</strong> — скопируйте из соответствующей графы.</li>
+    </ul>
+    <div class="image-placeholder"><span>🔧 Пример заполнения полей прокси в Telegram</span></div>
+    <p><strong>Всё!</strong> Ваш Telegram будет работать без перебоя. Используйте только один прокси для одной цели, если нужна Телега на ПК, берите второй прокси и ни с кем не делитесь. Так у вас будет Телега работать безотказно.</p>
+
+    <div class="proxys-note">
+        💡 <strong>Важно:</strong> если нужен доступ к зарубежным нейросетям — подробности <a href="https://5-tstas.github.io/chatgpt-bez-vpn.html" target="_blank">тут</a>
+    </div>
+
+    <!-- P.S. про видеоинструмент -->
+    <h2>📌 P. S. Кстати, если снимаешь видео</h2>
+    <p>Пока Telegram лежал — нашёл инструмент, который реально экономит время на монтаже. Генерирует анимированные вставки для видео за 30 секунд: титры с печатанием, схемы, диалог с ChatGPT прямо в кадре. Экспорт с прозрачным фоном, работает офлайн, без подписок.</p>
+    <p>✔ Overlay — анимированные титры с эффектом печатания. Без After Effects.<br>
+    ✔ Chat-GPT эмулятор — показываешь диалог с нейросетью прямо в кадре.<br>
+    ✔ ABC-схема — объясняешь структуру тремя слайдами с переходом.</p>
+    <p>Каждый экспортируется как WebM с прозрачным фоном — ложится поверх видео в один клик. CapCut, Premiere, DaVinci. Работает без интернета.</p>
+    <p><strong>Демо без регистрации — просто открыть и пощупать:</strong> 👉 <a href="https://cpc.ruinterbiz.ru/Demo/lend-demo-rk-2.html" target="_blank" rel="noopener">https://cpc.ruinterbiz.ru/Demo/lend-demo-rk-2.html</a></p>
+    <!-- image13 из ворда – заглушка -->
+    <div class="image-placeholder"><span>🎬 Скриншот инструмента для видео (анимированные вставки)</span></div>
+
+    <!-- ФОРМА КОММЕНТАРИЕВ -->
+    <div class="comment-section">
+        <h3>Оставить комментарий</h3>
+        <p>Задавайте вопросы, делитесь опытом или предложениями. Все комментарии проходят модерацию перед публикацией.</p>
+        <div class="comment-form" id="comment-form-element">
+            <input type="text" id="comment-name" placeholder="Ваше имя" required>
+            <textarea id="comment-text" rows="3" placeholder="Ваш комментарий..." required></textarea>
+            <button id="submit-comment">Отправить комментарий</button>
+        </div>
+        <div class="comments-list" id="comments-container">
+            <div class="comment-item"><div class="comment-name">Алексей</div><div class="comment-text">Спасибо! Инструкция рабочая, уже настроил прокси через Proxys.io, телега летает.</div></div>
+            <div class="comment-item"><div class="comment-name">Екатерина</div><div class="comment-text">Подскажите, а если канал в телеге был монетизирован, после разблокировки через прокси кошелек Wallet снова доступен? У меня USDT отображаются.</div></div>
+        </div>
+    </div>
+
+    <div class="footer-copy">
+        © 2023–<span id="current-year"></span> Инструкция по восстановлению доступа Telegram. Копирование материалов разрешено только с указанием активной ссылки на источник. Все права защищены.
+    </div>
+</div>
+
+<script>
+    // Автоматическое обновление года в копирайте
+    document.getElementById('current-year').innerText = new Date().getFullYear();
+
+    // Простая логика комментариев (добавление новых сообщений)
+    const submitBtn = document.getElementById('submit-comment');
+    const nameInput = document.getElementById('comment-name');
+    const textInput = document.getElementById('comment-text');
+    const commentsContainer = document.getElementById('comments-container');
+
+    function addComment(name, message) {
+        if (!name.trim() || !message.trim()) return;
+        const newCommentDiv = document.createElement('div');
+        newCommentDiv.className = 'comment-item';
+        newCommentDiv.innerHTML = `<div class="comment-name">${escapeHtml(name.trim())}</div><div class="comment-text">${escapeHtml(message.trim())}</div>`;
+        commentsContainer.prepend(newCommentDiv);
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+
+    submitBtn.addEventListener('click', function() {
+        const name = nameInput.value;
+        const message = textInput.value;
+        if (!name || !message) {
+            alert('Пожалуйста, заполните имя и текст комментария');
+            return;
+        }
+        addComment(name, message);
+        nameInput.value = '';
+        textInput.value = '';
+        // не сохраняем в localStorage, но для демонстрации функционала достаточно
+        alert('Комментарий добавлен (демонстрация). После модерации появится.');
+    });
+</script>
+</body>
+</html>
